@@ -4,6 +4,19 @@ import "fmt"
 
 func main() {
 
-	fmt.Println("Hello World this is thankfully not C++ and there can only be 1 main function")
+	// strings
+	var nameOne string = "Hello"
+	var nameTwo = "Goodbye"
+	var nameThree string
+	
+	fmt.Println(nameOne, nameTwo, nameThree)
 
+	nameOne = "Jim"
+	nameThree = "Bob"
+
+	fmt.Println(nameOne, nameTwo, nameThree)
+
+	nameFour := "Emily"
+
+	fmt.Println(nameOne, nameTwo, nameThree, nameFour)
 }

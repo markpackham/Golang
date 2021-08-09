@@ -4,43 +4,28 @@ import "fmt"
 
 func main() {
 
-	// strings
-	// var nameOne string = "Hello"
-	// var nameTwo = "Goodbye"
-	// var nameThree string
+	age := 10
+	name := "Bob"
 
-	// fmt.Println(nameOne, nameTwo, nameThree)
+	// // Print
+	// fmt.Print("Hello ")
+	// fmt.Print("world \n")
+	// fmt.Print("world \n")
 
-	// nameOne = "Jim"
-	// nameThree = "Bob"
+	// // PrintLn
+	// fmt.Println("Hello World")
+	// fmt.Println("Hello World")
+	// fmt.Println("My age is", age, " my name is ", name)
 
-	// fmt.Println(nameOne, nameTwo, nameThree)
-
-	// nameFour := "Emily"
-
-	// fmt.Println(nameFour)
-
-	// ints
-	// var ageOne int = 20
-	// var ageTwo int = 30
-	// ageThree := 40
-
-	// fmt.Println(ageOne, ageTwo, ageThree)
-
-	// bits & memory
-	// var numOne int8 = 25
-	// var numTwo = -12999999
-	// var numThree uint = 255
-
-	// fmt.Println(numOne, numTwo, numThree)
+	// Printf (Formatted string) %_ = format specifier
+	fmt.Printf("my age is %v and my name is %v \n", age, name)
+	fmt.Printf("my age is %d and my name is %q \n", age, name)
+	fmt.Printf("age is of type %T", age)
+	fmt.Printf("you scored %0.2f points! \n", 222.3311)
 
 
-	// floats, unlike ints you must provide a number alongside them, use float64 when memory is no real issue
-
-	var scoreOne float32 = -0.025
-	var scoreTwo float64 = 9192.9999129
-	scoreThree := 1.7
-
-	fmt.Println(scoreOne, scoreTwo, scoreThree)
+	// Sprintf (save formatted strings in variables)
+	var str = fmt.Sprintf("my age is %v and my name is %v \n", age, name)
+	fmt.Println("The saved String is -- ", str)
 
 }

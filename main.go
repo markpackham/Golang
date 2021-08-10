@@ -4,28 +4,35 @@ import "fmt"
 
 func main() {
 
-	age := 10
-	name := "Bob"
+	// var ages [3]int = [3]int{20, 25, 30}
+	var ages = [3]int{20, 25, 30}
 
-	// // Print
-	// fmt.Print("Hello ")
-	// fmt.Print("world \n")
-	// fmt.Print("world \n")
+	names := [4]string{"yoshi", "mario", "peach", "bowser"}
+	names[1] = "luigi"
 
-	// // PrintLn
-	// fmt.Println("Hello World")
-	// fmt.Println("Hello World")
-	// fmt.Println("My age is", age, " my name is ", name)
+	fmt.Println(ages, len(ages))
+	fmt.Println(names, len(names))
 
-	// Printf (Formatted string) %_ = format specifier
-	fmt.Printf("my age is %v and my name is %v \n", age, name)
-	fmt.Printf("my age is %d and my name is %q \n", age, name)
-	fmt.Printf("age is of type %T", age)
-	fmt.Printf("you scored %0.2f points! \n", 222.3311)
+	// slices (use arrays under the hood but length can change)
+	var scores = []int{100, 50, 60}
+	scores[2] = 25
+	scores = append(scores, 85)
+
+	fmt.Println(scores, len(scores))
+	// gives, [100 50 25 85] 4
 
 
-	// Sprintf (save formatted strings in variables)
-	var str = fmt.Sprintf("my age is %v and my name is %v \n", age, name)
-	fmt.Println("The saved String is -- ", str)
+	// slice ranges (inclusive of value on left but not right)
+	rangeOne := names[1:4] // doesn't include pos 4 element
+	rangeTwo := names[2:]  //includes the last element
+	rangeThree := names[:3] // go from the start and get up to but not including position 3
+
+	fmt.Println(rangeOne, rangeTwo, rangeThree)
+	// [luigi peach bowser] [peach bowser] [yoshi luigi peach]
+	fmt.Printf("the type of rangeOne is %T \n", rangeOne)
+
+	rangeOne = append(rangeOne, "koopa")
+	fmt.Println(rangeOne)
+
 
 }

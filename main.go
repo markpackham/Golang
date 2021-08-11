@@ -1,38 +1,37 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"sort"
+	"strings"
+)
 
 func main() {
 
-	// var ages [3]int = [3]int{20, 25, 30}
-	var ages = [3]int{20, 25, 30}
-
-	names := [4]string{"yoshi", "mario", "peach", "bowser"}
-	names[1] = "luigi"
-
-	fmt.Println(ages, len(ages))
-	fmt.Println(names, len(names))
-
-	// slices (use arrays under the hood but length can change)
-	var scores = []int{100, 50, 60}
-	scores[2] = 25
-	scores = append(scores, 85)
-
-	fmt.Println(scores, len(scores))
-	// gives, [100 50 25 85] 4
+	// Strings package usage (doesn't effect original value)
+	greeting := "hello world of meow"
+	//  fmt.Println(strings.Contains(greeting, "hello"))
+	//  // the original string isn't replaced by ReplaceAll, it uses a new string instead
+	//  fmt.Println(strings.ReplaceAll(greeting, "hello","goodbye"))
+	//  fmt.Println(strings.ToUpper(greeting))
+	//  fmt.Println(strings.Index(greeting, "ll"))
+	fmt.Println(strings.Split(greeting, " ")) // [hello world of meow]
 
 
-	// slice ranges (inclusive of value on left but not right)
-	rangeOne := names[1:4] // doesn't include pos 4 element
-	rangeTwo := names[2:]  //includes the last element
-	rangeThree := names[:3] // go from the start and get up to but not including position 3
+	// Sort package usage (DOES effect original value)
+	ages := []int{45, 20, 35, 30, 75, 60, 50, 25}
 
-	fmt.Println(rangeOne, rangeTwo, rangeThree)
-	// [luigi peach bowser] [peach bowser] [yoshi luigi peach]
-	fmt.Printf("the type of rangeOne is %T \n", rangeOne)
+	sort.Ints(ages)
+	fmt.Println(ages)
 
-	rangeOne = append(rangeOne, "koopa")
-	fmt.Println(rangeOne)
+	index := sort.SearchInts(ages, 30)
+	fmt.Println(index)
 
+	names := []string{"yoshi", "mario", "peach", "bowser", "luigi"}
+
+	sort.Strings(names)
+	fmt.Println(names)
+
+	fmt.Println(sort.SearchStrings(names, "bowser")) // position 0 since it has been sorted
 
 }

@@ -6,33 +6,38 @@ import (
 
 func main() {
 
-	x := 0
-	for x < 5 {
-		fmt.Println("value of x is:", x)
-		x++ // Without this you'd be stuck in an infinite loop
+//  age := 450
+
+//  if age < 30{
+// 	 fmt.Println("Age less than 30")
+//  } else if age < 40{
+// 	fmt.Println("Age less than 40")
+//  } else{
+// 	fmt.Println("Age more than 39") 
+//  }
+
+ names := []string{"mario", "luigi", "yoshi", "peach", "bowser"}
+
+ for index, val := range names {
+	if index == 1 {
+		fmt.Println("continuing at pos", index)
+		continue
 	}
-
-	for i := 0; i < 5; i++ {
-		fmt.Println("value of i is:", i)
+	if index > 2 {
+		fmt.Println("breaking at pos", index)
+		break
 	}
+	fmt.Printf("the value at pos %v is %v \n", index, val)
 
-	names := []string{"mario", "luigi", "yoshi", "peach"}
+// Output
+// the value at pos 0 is mario 
+// continuing at pos 1
+// the value at pos 2 is yoshi
+// breaking at pos 3
 
-	for i := 0; i < len(names); i++ {
-		fmt.Println(names[i])
-	}
 
-	for index, val := range names {
-		fmt.Printf("the value at pos %v is %v \n", index, val)
-		val = "new string"
-	}
+ }
 
-	for _, val := range names {
-		fmt.Print(val, ",")
-		val = "new string"
-	}
 
-	// changing a val in a loop doesn't alter the original slice
-	fmt.Println(names)
 
 }

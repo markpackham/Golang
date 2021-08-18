@@ -2,42 +2,42 @@ package main
 
 import (
 	"fmt"
+	"math"
 )
 
+func sayGreeting(name string) {
+	fmt.Printf("Good morning %v \n", name)
+}
+
+func sayBye(name string) {
+	fmt.Printf("Goodbye %v \n", name)
+}
+
+// we can pass functions as arguments
+func cycleNames(name []string, fun func(string)) {
+	// we don't care about the index so user _
+	for _, element := range name {
+		fun(element)
+	}
+}
+
+
+func circleArea(radius float64) float64 {
+	// had to import math package to use Pi
+	return math.Pi * radius * radius
+}
+
 func main() {
+	sayGreeting("mario")
+	sayGreeting("luigi")
+	sayBye("mario")
 
-//  age := 450
+	cycleNames([]string{"squall", "yuna", "ardyn"}, sayGreeting)
+	cycleNames([]string{"squall", "yuna", "ardyn"}, sayBye)
+	
+	a1 := circleArea(10.5)
+	a2 := circleArea(15)
 
-//  if age < 30{
-// 	 fmt.Println("Age less than 30")
-//  } else if age < 40{
-// 	fmt.Println("Age less than 40")
-//  } else{
-// 	fmt.Println("Age more than 39") 
-//  }
-
- names := []string{"mario", "luigi", "yoshi", "peach", "bowser"}
-
- for index, val := range names {
-	if index == 1 {
-		fmt.Println("continuing at pos", index)
-		continue
-	}
-	if index > 2 {
-		fmt.Println("breaking at pos", index)
-		break
-	}
-	fmt.Printf("the value at pos %v is %v \n", index, val)
-
-// Output
-// the value at pos 0 is mario 
-// continuing at pos 1
-// the value at pos 2 is yoshi
-// breaking at pos 3
-
-
- }
-
-
-
+	fmt.Println(a1, a2)
+	fmt.Printf("circle 1 area is %0.3f & circle 2 area is %0.3f \n", a1, a2)
 }

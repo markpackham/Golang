@@ -2,42 +2,37 @@ package main
 
 import (
 	"fmt"
-	"math"
+	"strings"
 )
 
-func sayGreeting(name string) {
-	fmt.Printf("Good morning %v \n", name)
-}
+func getInitials(name string) (string, string) {
 
-func sayBye(name string) {
-	fmt.Printf("Goodbye %v \n", name)
-}
+	newString := strings.ToUpper(name)
+	names := strings.Split(newString, " ")
 
-// we can pass functions as arguments
-func cycleNames(name []string, fun func(string)) {
-	// we don't care about the index so user _
-	for _, element := range name {
-		fun(element)
+	var initials []string
+	// don't want index but do want value so _, V
+	for _, v := range names {
+		initials = append(initials, v[:1])
 	}
-}
 
+	if len(initials) > 1 {
+		return initials[0], initials[1]
+	}
 
-func circleArea(radius float64) float64 {
-	// had to import math package to use Pi
-	return math.Pi * radius * radius
+	// if you only have one name return this
+	return initials[0], "_"
 }
 
 func main() {
-	sayGreeting("mario")
-	sayGreeting("luigi")
-	sayBye("mario")
+	firstName1, surName1 := getInitials("Squall Leonheart")
+	fmt.Println(firstName1, surName1)
 
-	cycleNames([]string{"squall", "yuna", "ardyn"}, sayGreeting)
-	cycleNames([]string{"squall", "yuna", "ardyn"}, sayBye)
-	
-	a1 := circleArea(10.5)
-	a2 := circleArea(15)
+	// we can only handle 2 params so "Ardyn Lucis Caelum" would just return "AL" so "C" wouldn't be returned
+	fn2, sn2 := getInitials("Ardyn Lucis Caelum")
+	fmt.Println(fn2, sn2)
 
-	fmt.Println(a1, a2)
-	fmt.Printf("circle 1 area is %0.3f & circle 2 area is %0.3f \n", a1, a2)
+	// Yuna give "Y _"
+	fn3, sn3 := getInitials("Yuna")
+	fmt.Println(fn3, sn3)
 }

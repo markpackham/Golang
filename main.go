@@ -1,20 +1,29 @@
 package main
 
-import "fmt"
+import (
+	"bufio"
+	"fmt"
+	"os"
+	"strings"
+)
 
-// Go uses Struct for custom types, rather than Classes
+func createBill() bill{
+	reader := bufio.NewReader(os.Stdin)
+
+	fmt.Print("Create a new bill name: ")
+	name, _ := reader.ReadString('\n')
+	name = strings.TrimSpace(name)
+
+	b := newBill(name)
+	fmt.Println("Created the bill - ", b.name)
+
+	return b
+}
+
 func main(){
+	mybill := createBill()
 
-	myBill := newBill("mario bill")
-
-	myBill.addItem("onion soup", 4.50)
-	myBill.addItem("veg pie", 8.95)
-	myBill.addItem("toffee pudding", 4.95)
-	myBill.addItem("coffee", 3.25)
-
-	myBill.updateTip(10)
-
-	fmt.Println(myBill.format())
+	fmt.Println(mybill)
 }
 
 

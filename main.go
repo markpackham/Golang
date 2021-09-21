@@ -1,42 +1,36 @@
 package main
 
-// a "map" is like a dictionary in python with key value pairs
-// in a map it must be all the same type, you can't just chuck anything into it
-
 import(
 	"fmt"
 )
 
+func updateName(x string) string{
+	x = "wedge"
+	return x
+}
+
+// effects variables who you can target in memory to change
+func updateMenu(y map[string]float64) {
+	y["coffee"] = 2.99
+}
+
 func main(){
+	// group A types -> strings, ints, bools, floats, arrays, structs
+	// non-pointer wrapper values
+	name := "tifa"
+
+	updateName(name)
+
+	fmt.Println(name)
+
+	// group B types -> slices, maps, functions
+	// pointer wrapper values
 	menu := map[string]float64{
-		"soup": 4.99,
-		"pie": 7.99,
-		"salad": 6.99,
-		"toffee": 3.55,
+		"pie":       5.95,
+		"ice cream": 3.99,
 	}
 
+	updateMenu(menu)
 	fmt.Println(menu)
-	fmt.Println(menu["pie"])
-
-	// looping maps with key and value (you must use "k" and "v")
-	for k, v := range menu{
-		fmt.Println(k, "-", v)
-	}
-
-	// ints as key type
-	phonebook := map[int]string{
-		267584967: "mario",
-		984759373: "luigi",
-		845775485: "peach",
-	}
-
-	fmt.Println(phonebook)
-	fmt.Println(phonebook[267584967])
-
-	phonebook[984759373] = "wario"
-	fmt.Println(phonebook)
-
-	phonebook[845775485] = "toad"
-	fmt.Println(phonebook)
 
 }

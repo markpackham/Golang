@@ -2,35 +2,13 @@ package main
 
 import "fmt"
 
-func updateName(x *string){
-	*x = "wedge"
-}
-
+// Go uses Struct for custom types, rather than Classes
 func main(){
 
-	name := "tifa"
+	myBill := newBill("mario bill")
 
-	// updateName(name)
-
-	fmt.Println("memory address of name is: ", &name)
-
-	m := &name
-	// fmt.Println("memory address", m)
-	// fmt.Println("value at memory address", *m)
-
-	fmt.Println(name)
-	updateName(m)
-	fmt.Println(name)
+	fmt.Println(myBill)
 }
 
 
-
-
-/*
-Memory addresses
-|--name---|----m----|
-|  0x001  |  0x002  |
-|---------|---------|
-| "tifa"  | p0x001  |
-|---------|---------|
-*/
+// go run main.go bill.go

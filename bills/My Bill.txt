@@ -1,0 +1,5 @@
+Bill breakdown: 
+fish:                     £11.11 
+cake:                     £20.22 
+tip:                      £5
+total:                    £36.33
